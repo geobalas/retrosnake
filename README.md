@@ -1,7 +1,7 @@
-Colorbreaker
+Retro snake
 =====
 
-A simple Snake game written in AngularJS.
+A simple snake game written in AngularJS.
 
 Requires node.js, npm, gulp and bower.
 
