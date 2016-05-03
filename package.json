@@ -1,0 +1,22 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Classic snake game",
+  "license": "MIT",
+  "repository": "https://github.com/geobalas/snake",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "gulp && cd public && bower install"
+  },
+  "dependencies": {
+    "express": "~4.13.3"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-less": "~3.0.5",
+    "gulp-util": "~3.0.7",
+    "gulp-rename": "~1.2.2",
+    "bower": "~1.7.2"
+  }
+}

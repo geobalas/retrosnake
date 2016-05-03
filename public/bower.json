@@ -1,0 +1,21 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "authors": [
+    "George Balasis"
+  ],
+  "description": "Classic snake game",
+  "keywords": [
+    "snake"
+  ],
+  "license": "MIT",
+  "homepage": "www.snakegame.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9"
+  }
+}

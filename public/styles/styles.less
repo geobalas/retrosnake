@@ -1,0 +1,201 @@
+@backgroundColor: #8FA291;
+@pixelColor: #2c372c;
+@pixelSize: 12px;
+@pixelSize768: @pixelSize / 3 * 2;
+@pixelSize480: @pixelSize / 2;
+@pixelSize360: @pixelSize / 12 * 5;
+
+@font-face {
+    font-family: "Munro";
+    src: url(/fonts/munro1/Munro.ttf) format('truetype');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: @backgroundColor;
+}
+
+.ng-cloak {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.score-indicator {
+    font-family: "Munro";
+    font-size: 36px;
+    font-weight: bold;
+    color: @pixelColor;
+}
+
+.main-body {
+    max-width: 720px;
+    margin: 0px auto;
+    height: 100%;
+    padding-top: 40px;
+    box-sizing: border-box;
+    &.victory {
+        overflow: hidden;
+    }
+}
+
+.board {
+    width: 100%;
+    height: 360px;
+    border: @pixelSize dashed @pixelColor;
+}
+
+.board-block {
+    box-sizing: border-box;
+    width: @pixelSize * 3;
+    height: @pixelSize * 3;
+    display: inline-block;
+    float: left;
+
+    &.snake {
+        background-color: @pixelColor;
+    }
+
+    &.egg {
+        background-color: transparent;
+        background-image: linear-gradient(45deg, @pixelColor 25%, transparent 25%, transparent 75%, @pixelColor 75%, @pixelColor), 
+        linear-gradient(45deg, @pixelColor 25%, transparent 25%, transparent 75%, @pixelColor 75%, @pixelColor);
+        background-size: @pixelSize * 2  @pixelSize * 2;
+        background-position:0 0, @pixelSize @pixelSize;
+    }
+}
+
+.victory .row-wrapper {
+    filter: blur(16px);
+    -ms-filter: blur(16px);
+}
+
+.modal-backdrop {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    .modal-window {
+        background-color: @backgroundColor;
+        color: @pixelColor;
+        border-radius: 0px;
+        font-family: "Munro";
+        left: 50%;
+        max-width: 360px;
+        padding: 16px 32px;
+        position: absolute;
+        text-align: center;
+        top: 270px;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        border: @pixelSize solid @pixelColor;
+
+        &.paused-modal {
+            background-color: @pixelColor;
+            color: @backgroundColor;
+            border: 0 none;
+            width: 80px;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: @pixelColor;
+            border: 0 none;
+            border-radius: 0px;
+            color: @backgroundColor;
+            cursor: pointer;
+            font-family: "Munro";
+            font-size: 24px;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            text-align: left;
+            &.modal-score-indicator {
+                text-align: center;
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main-body {
+        max-width: 480px;
+    }
+    .board{
+        height: 240px;
+        border: @pixelSize768 dashed @pixelColor;
+    }
+    .board-block {
+        width: @pixelSize768 * 3;
+        height: @pixelSize768 * 3;
+        &.egg {
+            background-size: @pixelSize768 * 2  @pixelSize768 * 2;
+            background-position:0 0, @pixelSize768 @pixelSize768;
+        }
+    }
+    .modal-backdrop .modal-window {
+        top: 210px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-body {
+        max-width: 360px;
+    }
+    .modal-backdrop .modal-window {
+        width: 280px;
+        top: 170px;
+    }
+    .board{
+        height: 180px;
+        border: @pixelSize480 dashed @pixelColor;
+    }
+    .board-block {
+        width: @pixelSize480 * 3;
+        height: @pixelSize480 * 3;
+        &.egg {
+            background-size: @pixelSize480 * 2  @pixelSize480 * 2;
+            background-position:0 0, @pixelSize480 @pixelSize480;
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .main-body {
+        max-width: 300px;
+    }
+    .modal-backdrop .modal-window {
+        width: 180px;
+        top: 160px;
+    }
+    .board{
+        height: 150px;
+        border: @pixelSize360 dashed @pixelColor;
+    }
+    .board-block {
+        width: @pixelSize360 * 3;
+        height: @pixelSize360 * 3;
+        &.egg {
+            background-size: @pixelSize360 * 2  @pixelSize360 * 2;
+            background-position:0 0, @pixelSize360 @pixelSize360;
+        }
+    }
+}
