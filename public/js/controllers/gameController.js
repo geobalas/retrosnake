@@ -14,9 +14,9 @@
             xSize = 20,
             ySize = 10;
 
-        for(let i = 0 ; i < ySize ; i++) {
+        for(var i = 0 ; i < ySize ; i++) {
             $scope.blocks.push([]);
-            for(let j = 0 ; j < xSize ; j++) {
+            for(var j = 0 ; j < xSize ; j++) {
                 $scope.blocks[i].push({snake: false, egg: false});
             }
         }
@@ -70,8 +70,8 @@
         }
 
         function clearBoard() {
-            for(let i = 0 ; i < ySize ; i++) {
-                for(let j = 0 ; j < xSize ; j++) {
+            for(var i = 0 ; i < ySize ; i++) {
+                for(var j = 0 ; j < xSize ; j++) {
                     $scope.blocks[i][j] = {snake: false, egg: false};
                 }
             }
@@ -144,11 +144,11 @@
 
         function detectCollisions() {
             var collisions = {self: false, egg: false};
-            for(let i = 0 ; i < snake.length-1 ; i++) {
+            for(var i = 0 ; i < snake.length-1 ; i++) {
                 if(snake[i][0] === egg[0] && snake[i][1] === egg[1]) {
                     collisions.egg = true;
                 }
-                for(let j = i+1 ; j < snake.length ; j++) {
+                for(var j = i+1 ; j < snake.length ; j++) {
                     if(snake[i][0] === snake[j][0] && snake[i][1] === snake[j][1]) {
                         collisions.self = true;
                         break;
